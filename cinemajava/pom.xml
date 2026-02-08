@@ -58,6 +58,7 @@
         <project.organization.name>CinemaJava</project.organization.name>
 
         <datafaker.version>2.5.3</datafaker.version>
+        <checkstyle.version>13.2.0</checkstyle.version>
     </properties>
 
     <dependencyManagement>
@@ -185,6 +186,14 @@
                     <configLocation>config/checkstyle.xml</configLocation>
                     <includeTestSourceDirectory>false</includeTestSourceDirectory>
                 </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
 
                 <executions>
                     <execution>
