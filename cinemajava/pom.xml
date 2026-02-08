@@ -56,10 +56,43 @@
         <maven.build.timestamp.format>yyyy</maven.build.timestamp.format>
         <project.inceptionYear>${maven.build.timestamp}</project.inceptionYear>
         <project.organization.name>CinemaJava</project.organization.name>
+
+        <datafaker.version>2.5.3</datafaker.version>
     </properties>
 
     <dependencyManagement>
-        <dependencies/>
+        <dependencies>
+
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>datafaker.version</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.dawid0604.cinemajava</groupId>
+                <artifactId>cinema-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.dawid0604.cinemajava</groupId>
+                <artifactId>cinema-bootstrap</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.dawid0604.cinemajava</groupId>
+                <artifactId>cinema-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.dawid0604.cinemajava</groupId>
+                <artifactId>cinema-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>
