@@ -3,6 +3,7 @@ name: "CinemaJava project"
 volumes:
   cinemajava-db-volume:
   cinemajava-pgadmin-volume:
+  cinemajava-rabbitmq_data-volume:
 
 services:
   cinemajava-db-postgres:
@@ -52,6 +53,24 @@ services:
     depends_on:
       cinemajava-db-postgres:
         condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: cinemajava-rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - cinemajava-rabbitmq_data-volume:/var/lib/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - cinemajava-network
 
 networks:
   cinemajava-network:

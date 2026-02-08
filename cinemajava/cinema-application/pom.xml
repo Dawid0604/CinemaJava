@@ -11,4 +11,11 @@
     <groupId>pl.dawid0604.cinemajava</groupId>
     <artifactId>cinema-application</artifactId>
     <name>${project.organization.name} - application</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+    </dependencies>
 </project>

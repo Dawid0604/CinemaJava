@@ -44,6 +44,12 @@ spring:
     baseline-on-migrate: true
     validate-on-migrate: true
 
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+
 management:
   endpoints.web:
     exposure.include: health,info,metrics
